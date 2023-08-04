@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTOR DE PROYECTOS:Archivo de Proyectos</title>
+    <style>
+        body{
+            background-color: #FFE4C4;
+        }
+        h1,h2{
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid black; 
+        }
+
+        th, td {
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: center; 
+            background-color: #E6E6FA;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ARCHIVO DE PROYECTOS</h1>
+        <nav>
+            <h2>MENU DE NAVEGACION</h2> 
+            <table>
+                <tr>
+                    <td><a href="index.html">1.-MENU PRINCIPAL</a></td>
+                    <td><a href="01_listadoDeProyectos.html">2.-LISTADO DE PROYECTOS</a></td>
+                    <td><a href="03_propuestasDeProyectos.html">3.-PROPUESTAS DE PROYECTOS</a></td>
+                    <td><a href="04_reportesDeProyectos.html">4.-REPORTES DE PROYECTOS</a></td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <main>
+        <Article>
+            <h2></h2>
+            <label for="opciones">Seleccione un proyecto:</label>
+            <select id="opciones">
+                <option value="opcion1">Proyecto Archivado1</option>
+                <option value="opcion2">Proyecto Archivado2</option>
+                <option value="opcion3">Proyecto Archivado3</option>
+                <option value="opcion4">Proyecto Archivado4</option>
+            </select>
+        
+            <button id="eliminar">Eliminar opción seleccionada</button>
+        
+            <script>
+                const eliminarBtn = document.getElementById('eliminar');
+                const opcionesSelect = document.getElementById('opciones');
+        
+                eliminarBtn.addEventListener('click', () => {
+                    const opcionSeleccionada = opcionesSelect.value;
+                    const opcionEliminar = opcionesSelect.querySelector(`option[value="${opcionSeleccionada}"]`);
+                    if (opcionEliminar) {
+                        opcionEliminar.remove();
+                    }
+                });
+            </script>
+        </Article>
+
+    </main>
+</body>
+</html>

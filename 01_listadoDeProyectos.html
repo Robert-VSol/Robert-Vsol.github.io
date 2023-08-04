@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTOR DE PROYECTOS:Listado de Proyectos</title>
+    <style>
+        body{
+            background-color: #FFE4C4;
+        }
+        h1,h2{
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid black; 
+        }
+
+        th, td {
+            border: 1px solid black; 
+            padding: 8px; 
+            text-align: center; 
+            background-color: #E6E6FA;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LISTADO DE PROYECTOS</h1>
+        <h2>MENU DE NAVEGACION</h2> 
+        <nav>
+            <table>
+                <tr>
+                    <td><a href="index.html">1.-MENU PRINCIPAL</a></td>
+                    <td><a href="02_archivarProyectos.html">2.-ARCHIVO DE PROYECTO</a></td>
+                    <td><a href="03_propuestasDeProyectos.html">3.-PROPUESTAS DE PROYECTOS</a></td>
+                    <td><a href="04_reportesDeProyectos.html">4.-REPORTES DE PROYECTOS</a></td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <main>
+        <p></p>
+        <label for="cajaBusqueda">Buscar proyecto:</label>
+        <input type="text" id="cajaBusqueda" placeholder="Ingresa el texto a buscar">
+        <nav>
+            <h3>Menu</h3>
+                <ul id="lista">
+                    <li><a href="01_1proyecto.html">Proyecto1</a></li>
+                    <li><a href="01_2proyecto.html">Proyecto2</a></li>
+                    <li><a href="01_3proyecto.html">Proyecto3</a></li>
+                    <li><a href="01_4proyecto.html">Proyecto4</a></li>
+                </ul>
+        </nav>
+        <script>
+            const cajaBusqueda = document.getElementById('cajaBusqueda');
+            const lista = document.getElementById('lista').getElementsByTagName('li');
+            cajaBusqueda.addEventListener('input', () => {
+                const textoBuscado = cajaBusqueda.value.toLowerCase();
+    
+                for (const item of lista) {
+                    const textoItem = item.textContent.toLowerCase();
+                    if (textoItem.includes(textoBuscado)) {
+                        item.style.display = 'block'; 
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        </script>
+    </main>
+</body>
